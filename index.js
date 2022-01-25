@@ -72,7 +72,14 @@ function choice1() {
 }
 function choice12() {
   operation = prompt("1. + \n 2. - \n 3. * \n 4. /");
-  main();
+}
+
+function isValid(temp) {
+  if (isNaN(temp)) {
+    alert("The input you have entered is not a number please enter a number");
+  } else {
+    alert(temp);
+  }
 }
 
 function main() {
@@ -89,17 +96,22 @@ function main() {
     no1 = parseInt(n1);
     no2 = parseInt(n2);
     console.log(typeof no1 + " " + typeof no2);
-    //If input no are invalid
-
+    //If input no are invalid we check by isValid function
+    let temp;
     //If input no is valid
     if (operation == 1) {
-      alert(no1 + no2);
+      temp = no1 + no2;
+      console.log(temp + " type of temp " + typeof temp);
+      isValid(temp);
     } else if (operation == 2) {
-      alert(no1 - no2);
+      temp = no1 - no2;
+      isValid(temp);
     } else if (operation == 3) {
-      alert(no1 * no2);
+      temp = no1 * no2;
+      isValid(temp);
     } else if (operation == 4) {
-      alert(no1 / no2);
+      temp = no1 / no2;
+      isValid(temp);
     } else {
       alert("Please enter no 1 to 4 to reflect your choice");
       choice1();
@@ -112,12 +124,15 @@ function main() {
     let area = prompt("1.Circle \n 2. Square");
     console.log("Area: " + area);
     let side;
+    let temp2;
     if (area == 1) {
       side = prompt("Enter Radius");
-      alert(side * side * 3.14);
+      temp2 = side * side * 3.14;
+      isValid(temp2);
     } else if (area == 2) {
       side = prompt("Enter Side");
-      alert(side * side);
+      temp2 = side * side;
+      isValid(temp2);
     } else {
       //Build Logic
       alert("Enter a no between 1 and 2");
@@ -144,7 +159,18 @@ function main() {
   //Expression Solver
   else if (op1 == 4) {
     //Logic for expression solver
-  } else {
+    let str = prompt(
+      "Enter the expression you want to evaluate in the form \n 2+(3/4)-5+6/7 (This is a sample input)"
+    );
+    let ans = eval(str);
+
+    //How to handle faulty input in this case??
+
+    alert(ans);
+    choice1();
+  }
+  //Exception
+  else {
     alert("Please enter no 1 to 4 to reflect your choice");
     choice1();
   }
