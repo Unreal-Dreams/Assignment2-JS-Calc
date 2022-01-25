@@ -68,66 +68,87 @@ function choice1() {
   op1 = prompt(
     "1. Mathematical Operations \n 2. Area of shapes \n 3. Functions \n 4. expression solver"
   );
+  main();
 }
 function choice12() {
   operation = prompt("1. + \n 2. - \n 3. * \n 4. /");
+  main();
 }
-choice1();
-console.log(op1);
-if (op1 == 1) {
-  choice12();
-  console.log("operation " + operation);
-  let n1, n2;
-  //Figure out the logic so that no are not taken input in case of invalid choice
-  n1 = prompt("Enter the first no");
-  n2 = prompt("Enter the second no");
-  console.log(typeof n1 + " " + typeof n2);
-  let no1, no2;
-  no1 = parseInt(n1);
-  no2 = parseInt(n2);
-  console.log(typeof no1 + " " + typeof no2);
-  //If input no are invalid
 
-  //If input no is valid
-  if (operation == 1) {
-    alert(no1 + no2);
-  } else if (operation == 2) {
-    alert(no1 - no2);
-  } else if (operation == 3) {
-    alert(no1 * no2);
-  } else if (operation == 4) {
-    alert(no1 / no2);
+function main() {
+  // Mathematical operations
+  if (op1 == 1) {
+    choice12();
+    console.log("operation " + operation);
+    let n1, n2;
+    //Figure out the logic so that no are not taken input in case of invalid choice
+    n1 = prompt("Enter the first no");
+    n2 = prompt("Enter the second no");
+    console.log(typeof n1 + " " + typeof n2);
+    let no1, no2;
+    no1 = parseInt(n1);
+    no2 = parseInt(n2);
+    console.log(typeof no1 + " " + typeof no2);
+    //If input no are invalid
+
+    //If input no is valid
+    if (operation == 1) {
+      alert(no1 + no2);
+    } else if (operation == 2) {
+      alert(no1 - no2);
+    } else if (operation == 3) {
+      alert(no1 * no2);
+    } else if (operation == 4) {
+      alert(no1 / no2);
+    } else {
+      alert("Please enter no 1 to 4 to reflect your choice");
+      choice1();
+    }
+    choice1();
+  }
+
+  //Area
+  else if (op1 == 2) {
+    let area = prompt("1.Circle \n 2. Square");
+    console.log("Area: " + area);
+    let side;
+    if (area == 1) {
+      side = prompt("Enter Radius");
+      alert(side * side * 3.14);
+    } else if (area == 2) {
+      side = prompt("Enter Side");
+      alert(side * side);
+    } else {
+      //Build Logic
+      alert("Enter a no between 1 and 2");
+    }
+    choice1();
+  }
+
+  //Functions
+  else if (op1 == 3) {
+    let func = prompt("1.Nth prime no \n 2. Nth Fibonaachi no ");
+    console.log("func: " + func);
+    if (func == 1) {
+      let no = prompt("Enter the no");
+      alert(findPrime(no));
+    } else if (func == 2) {
+      let no = prompt("Enter the no");
+      alert(fib(no));
+    } else {
+      alert("Please enter valid choice amonst 1 and 2");
+    }
+    choice1();
+  }
+
+  //Expression Solver
+  else if (op1 == 4) {
+    //Logic for expression solver
   } else {
     alert("Please enter no 1 to 4 to reflect your choice");
-    choice12();
+    choice1();
   }
-  choice1();
-} else if (op1 == 2) {
-  let area = prompt("1.Circle \n 2. Square");
-  let side;
-  if (area == 1) {
-    side = prompt("Enter Radius");
-    alert(side * side * 3.14);
-  } else if (area == 2) {
-    side = prompt("Enter Side");
-    alert(side * side);
-  } else {
-    //Build Logic
-  }
-  choice1();
-} else if (op1 == 3) {
-  let func = prompt("1.Nth prime no \n 2. Nth Fibonaachi no ");
-  let no = prompt("Enter the no");
-  if (func == 1) {
-    alert(findPrime(no));
-  } else if (func == 2) {
-    alert(fib(no));
-  } else {
-    alert("Please enter valid choice amonst 1 and 2");
-  }
-  choice1();
-} else if (op1 == 4) {
-} else {
-  alert("Please enter no 1 to 4 to reflect your choice");
-  choice1();
 }
+
+choice1();
+console.log(op1);
